@@ -1,0 +1,30 @@
+{% load static %}
+
+<header>
+    <h2>
+        <label for="nav-toggle">
+            <span class="fas fa-bars"></span>
+        </label>
+        {{ request.user.department.all.first.full_name}}
+
+    </h2>
+
+
+{#    <div>#}
+{#        <form class="search-wrapper" action="" method="get">#}
+{##}
+{#            <span class="fas fa-search"></span>#}
+{#            <input type="search" placeholder="search">#}
+{#        </form>#}
+{##}
+{#    </div>#}
+
+    <div class="user-wrapper">
+        <img src="{% static 'factura/img/app_logo (1).png' %}" alt="user_img" width="40" height="40">
+        <div class="user-wrapper__name">
+            <h4>Narziyev Orzu</h4>
+            <small>Super admin</small>
+        </div>
+
+    </div>
+</header>

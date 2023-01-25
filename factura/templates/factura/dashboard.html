@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+
+
+{% block content %}
+
+    <main>
+
+        <div class="cards">
+            {% for object in object_list %}
+                <div class="card-single">
+                    <a href="{% url 'factura:list_invoice' object.slug %}" class="">
+                        <h1>{{ object.name }}</h1>
+                        <code>{{ object.full_name }}</code>
+                    </a>
+                    <div class=""><span class="bi bi-pc-display-horizontal"></span>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+
+
+            <div class="card-single">
+                <div class="">
+                    <h1>Тех ПД</h1>
+                    <span>РЖУ Нодем</span>
+                </div>
+                <div class=""><span class="bi bi-pc-display-horizontal"></span>
+                </div>
+            </div>
+
+            <div class="card-single">
+                <div class="">
+                    <h1>Тех ПД</h1>
+                    <span>РЖУ Нодем</span>
+                </div>
+                <div class=""><span class="bi bi-pc-display-horizontal"></span>
+                </div>
+            </div>
+            <div class="card-single">
+                <div class="">
+                    <h1>Тех ПД</h1>
+                    <span>РЖУ Нодем</span>
+                </div>
+                <div class=""><span class="bi bi-pc-display-horizontal"></span>
+                </div>
+            </div>
+            <div class="card-single">
+                <div class="">
+                    <h1>Спец отдел</h1>
+                    <span>РЖУ Нодем</span>
+                </div>
+                <div class=""><span class="bi bi-pc-display-horizontal"></span>
+                </div>
+            </div>
+
+            <div class="card-single">
+                <div class="">
+                    <h1>Маркетинг</h1>
+                    <span>РЖУ Нодем</span>
+                </div>
+                <div class=""><span class="bi bi-graph-up-arrow"></span>
+                </div>
+            </div>
+
+            <div class="card-single">
+                <div class="">
+                    <h1>РЖУ Н</h1>
+                    <span>РЖУ Нодем</span>
+                </div>
+                <div class=""><span class="bi bi-pc-display-horizontal"></span>
+                </div>
+            </div>
+            <div class="card-single">
+                <div class="">
+                    <h1>Тех ПД</h1>
+                    <span>РЖУ Нодем</span>
+                </div>
+                <div class=""><span class="bi bi-pc-display-horizontal"></span>
+                </div>
+            </div>
+
+            <div class="card-single">
+                <div class="">
+                    <h1>Тех ПД</h1>
+                    <span>РЖУ Нодем</span>
+                </div>
+                <div class=""><span class="bi bi-pc-display-horizontal"></span>
+                </div>
+            </div>
+            <div class="card-single">
+                <div class="">
+                    <h1>Тех ПД</h1>
+                    <span>РЖУ Нодем</span>
+                </div>
+                <div class=""><span class="bi bi-pc-display-horizontal"></span>
+                </div>
+            </div>
+            <div class="card-single">
+                <div class="">
+                    <h1>Спец отдел</h1>
+                    <span>РЖУ Нодем</span>
+                </div>
+                <div class=""><span class="bi bi-pc-display-horizontal"></span>
+                </div>
+            </div>
+
+            <div class="card-single">
+                <div class="">
+                    <h1>Маркетинг</h1>
+                    <span>РЖУ Нодем</span>
+                </div>
+                <div class=""><span class="bi bi-graph-up-arrow"></span>
+                </div>
+            </div>
+
+
+        </div>
+
+    </main>
+
+{% endblock %}

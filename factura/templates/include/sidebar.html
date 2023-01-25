@@ -1,0 +1,20 @@
+{% load static %}
+<div class="sidebar">
+    <div class="sidebar-brand">
+        <h1><span><img width="50" src="{% static 'factura/img/app_logo (1).png' %}" alt=""></span><span>Railways</span>
+        </h1>
+    </div>
+
+    <div class="sidebar-menu">
+        <ul>
+            <li><a href="{% url 'factura:dashboard' %}" class="active" href=""><span class="fas fa-igloo"></span><span>Бош сахифа</span></a></li>
+            <li><a href="{% url 'factura:page' %}" href=""><span
+                    class="bi bi-arrow-down-circle"></span><span>Входящие</span></a></li>
+            <li><a href=""><span class="bi bi-arrow-up-circle"></span><span>Исходящий</span></a></li>
+            <li><a href=""><span class="bi bi-journal-text"></span><span>Топшириклар</span></a></li>
+            <li><a href=""><span class="bi bi-bell"></span><span>Буйрук Фармоишлар</span></a></li>
+            <li><a href=""><span class="bi bi-exclamation-triangle-fill"></span><span>Огохлантириш</span></a></li>
+
+        </ul>
+    </div>
+</div>

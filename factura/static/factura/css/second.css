@@ -1,0 +1,109 @@
+.factura__search-wrapper {
+    width: 100%;
+
+    margin: 1rem 0 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr .4fr;
+    gap: 1rem;
+}
+
+.factura__search-wrapper form {
+    position: relative;
+}
+
+input[type='search'] {
+    float: left;
+    border: none;
+    border-radius: 10px;
+    padding: .8rem;
+
+    background-color: #ffffff;
+    font-size: 1.2rem;
+    color: #1b1b1b;
+    width: 100%;
+}
+
+input[type='search']:focus {
+    outline: none;
+    box-shadow: 0 0 2px 3px #797EB9FF;
+}
+
+
+.factura__search-wrapper form button {
+    font-size: 1.5rem;
+    width: 60px;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    background: #7284ad;
+    padding: 0.4em;
+    /* border-radius: 10px; */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px
+
+}
+
+.add__factura {
+    background-color: rgba(255, 165, 0, 0.79);
+    max-width: 150px;
+    border-radius: 10px;
+}
+
+.type_doc_list {
+    display: none;
+}
+
+.type_doc_list.active {
+    display: initial;
+}
+
+.wrapper_dalolatnoma {
+    display: none;
+}
+
+.wrapper_dalolatnoma.active {
+    display: initial;
+}
+
+.wrapper-dalolatnoma {
+    display: grid;
+    grid-template-areas:
+            'form file image'
+            'user file image'
+            'user file image';
+    gap: 2em;
+    margin: 2em 0;
+}
+
+/*.form-factura {*/
+/*    flex: 1 auto;*/
+/*    width: 50%;*/
+/*}*/
+
+.dalolatnoma-form{
+    padding: 2em 0;
+}
+
+#add-formset {
+    float: right;
+}
+
+#send_btn {
+    float: right;
+}
+
+.form-factura {
+    grid-area: form;
+}
+
+.image-formset {
+    grid-area: image;
+}
+
+.file-formset {
+    grid-area: file;
+}
+
+.formset-factura {
+    grid-area: user;
+}

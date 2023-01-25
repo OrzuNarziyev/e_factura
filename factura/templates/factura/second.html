@@ -1,0 +1,355 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+    {{ object.full_name }}
+{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'factura/css/second.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <main>
+
+        <div class="factura__search-wrapper">
+            <form action="#" method="get">
+                <input type="search" class="search-input">
+                <button class="btn-search" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+            <button id="add_form_type" class="add__factura"><i class="bi bi-plus-circle"></i> Яратиш</button>
+        </div>
+
+        <section>
+            <div id="type_doc_list" class="type_doc_list row">
+                <div class="col" id="form_first">
+                    {{ form.xujjat_turi|as_crispy_field }}
+                </div>
+            </div>
+        </section>
+
+
+        <div class="wrapper__form" id="wrapper_form">
+            <div id="form-second">
+
+            </div>
+            {#            <div class="wrapper_dalolatnoma" id="dalolatnoma">#}
+            {#                {% include 'forms/formset.html' %}#}
+            {#            </div>#}
+        </div>
+
+
+        <div class="action-group">
+            {% for li in list_type %}
+                {% if forloop.first %}
+                    <a class="anchor active-link" href="/">{{ li }}</a>
+                {% else %}
+                    <a class="anchor " href="/">{{ li }}</a>
+
+                {% endif %}
+
+            {% endfor %}
+
+            {#            <a class="anchor active-link" href="/">Kirish xatlari</a>#}
+            {#            <a class="anchor false" href="{% url 'factura:detail_invoice' %}">Chiqish xatlari</a>#}
+            {#            <a class="anchor false" href="#">Dalolatnoma</a>#}
+            {#            <a class="anchor false" href="#">Bildirgi</a>#}
+            {#            <a class="anchor false" href="#">MTU buyruq</a>#}
+            {#            <a class="anchor false" href="#">N buyruq</a>#}
+        </div>
+
+        <div class="card-filter p-3">
+            <h3>Фильтр</h3>
+            <div class="filter-form">
+                <form action="" method="post">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="#" class="form-label"><b>Дата с</b></label>
+                            <input type="date" class="form-control">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="#" class="form-label"><b>Дата до</b></label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class=" offset-4 col-md-2">
+                            <button class="filter__btn btn btn-primary" type="button"><i class="bi bi-funnel-fill"></i>фильтр
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="resent-grid">
+            <div class="factura-list">
+                <div class="card">
+                    <ul class="wrapper-status">
+                        <li class="status__item"><a href="#" class="status__link active">
+                            <img src="{% static 'factura/img/silver.svg' %}" alt="">
+                            <p>Все</p>
+
+                        </a></li>
+                        <li class="status__item"><a href="#" class="status__link">
+                            <img src="{% static 'factura/img/red.svg' %}" alt="">
+                            <p>Отменен</p>
+                            <span class="count-fixed badge red">
+                                99
+                            </span>
+                        </a></li>
+                        <li class="status__item"><a href="#" class="status__link">
+                            <img src="{% static 'factura/img/green.svg' %}" alt="">
+                            <p>Подписано</p>
+                            <span class="count-fixed badge green">
+                                99
+                            </span>
+                        </a></li>
+                        <li class="status__item"><a href="#" class="status__link">
+                            <img src="{% static 'factura/img/orange.svg' %}" alt="">
+                            <p>В ожидании</p>
+                            <span class="count-fixed badge orange">
+                                99
+                            </span>
+                        </a></li>
+                    </ul>
+
+                    <div class="card-header">
+                        <h1>Все</h1>
+
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered">
+                                <thead>
+                                <tr>
+                                    <td rowspan="2">Холати</td>
+
+                                    <td rowspan="2">хужат тури</td>
+
+                                    <td colspan="2">Кириш</td>
+
+
+                                    <td colspan="2">Чикиш</td>
+
+
+                                    <td rowspan="2">Кискача м</td>
+                                </tr>
+
+                                <tr>
+                                    <td>№</td>
+                                    <td>сана</td>
+                                    <td>№</td>
+                                    <td>сана</td>
+                                </tr>
+
+                                </thead>
+                                <tbody>
+
+
+                                <tr data-href="{% url 'factura:detail_invoice' %}">
+
+                                    <td><img src="{% static 'factura/img/green.svg' %}" alt=""></td>
+                                    <td>Кириш хати</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td width="30%">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                        elit. Eaque, velit.
+                                    </td>
+                                </tr>
+
+                                <tr data-href="{% url 'factura:detail_invoice' %}">
+                                    <td><img src="{% static 'factura/img/red.svg' %}" alt=""></td>
+                                    <td>Кириш хати</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, velit.</td>
+                                </tr>
+
+                                <tr data-href="{% url 'factura:detail_invoice' %}">
+                                    <td><img src="{% static 'factura/img/orange.svg' %}" alt=""></td>
+                                    <td>Кириш хати</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, velit.</td>
+                                </tr>
+
+                                <tr data-href="{% url 'factura:detail_invoice' %}">
+                                    <td><img src="{% static 'factura/img/red.svg' %}" alt=""></td>
+                                    <td>Кириш хати</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, velit.</td>
+                                </tr>
+
+                                <tr data-href="{% url 'factura:detail_invoice' %}">
+                                    <td><img src="{% static 'factura/img/green.svg' %}" alt=""></td>
+                                    <td>Кириш хати</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, velit.</td>
+                                </tr>
+
+                                <tr>
+                                    <td><img src="{% static 'factura/img/red.svg' %}" alt=""></td>
+                                    <td>Кириш хати</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, velit.</td>
+                                </tr>
+
+                                <tr>
+                                    <td><img src="{% static 'factura/img/green.svg' %}" alt=""></td>
+                                    <td>Кириш хати</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, velit.</td>
+                                </tr>
+
+                                <tr>
+                                    <td><img src="{% static 'factura/img/orange.svg' %}" alt=""></td>
+                                    <td>Кириш хати</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>12</td>
+                                    <td>10.10.2023</td>
+                                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, velit.</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+{% csrf_token %}
+{% endblock %}
+
+{% block include_js %}
+
+    <script src="//cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
+    <script>
+
+        var csrf = document.getElementsByName('csrfmiddlewaretoken')
+        console.log(csrf[0].defaultValue)
+
+        const csrftoken = Cookies.get('csrftoken');
+
+        let type_btn = document.getElementById('add_form_type')
+        let type_list = document.getElementById('type_doc_list')
+
+        let dalolatnoma = document.querySelector('.dalolatnoma')
+
+
+        type_btn.addEventListener('click', (e) => {
+            type_list.classList.toggle('active')
+        })
+
+
+        {#type_hide.addEventListener('click', (e) => {#}
+        {#    e.preventDefault()#}
+        {#    wrapper_form.style.display = 'initial'#}
+
+        let select_form = document.getElementById('id_xujjat_turi')
+
+        select_form.addEventListener('change', (e) => {
+            e.preventDefault()
+            let target = e.target
+            let element = target.options[target.selectedIndex].innerText
+            send(element)
+        })
+
+        let url = {% url 'factura:form' %}
+
+            function send(type_doc) {
+                var options = {
+                    method: 'POST',
+                    mode: 'same-origin',
+                    headers: {
+                        'Content-Type': 'text/javascript',
+                        'X-CSRFToken': csrftoken
+                    },
+                    body: JSON.stringify({'type': type_doc})
+                }
+
+                fetch(url, options)
+                    .then(response => response.text())
+                    .then(data => {
+
+
+
+                        let has_script = document.querySelector('[data-has]');
+
+                        if (has_script) {
+                            has_script.remove()
+                            var script = document.createElement('script')
+                            script.src = '{% static 'factura/js/add_form.js' %}'
+                            script.defer = true
+                            script.dataset.has = true
+                            {#document.body.append(script)#}
+                        } else {
+                            var script = document.createElement('script')
+                            script.src = '{% static 'factura/js/add_form.js' %}'
+                            script.defer = true
+                            script.dataset.has = true
+                            document.body.append(script)
+
+                        }
+                        document.getElementById('form-second').innerHTML = data
+                    })
+            }
+
+
+        {#formset#}
+
+    </script>
+{% endblock %}
+
+{% block domready %}
+    {#    <script>#}
+    {#    try {#}
+    {#    let formsetContainer = document.querySelectorAll('.formset-container'),#}
+    {#    form = document.querySelector('#form'),#}
+    {#    addFormsetButton = document.getElementById('add-formset'),#}
+    {#    totalForms = document.getElementById('id_form-TOTAL_FORMS'),#}
+    {#    formsetNum = formsetContainer.length - 1;#}
+    {##}
+    {#    addFormsetButton.addEventListener('click', addformset)#}
+    {##}
+    {#    function addformset(e) {#}
+    {##}
+    {#    e.preventDefault()#}
+    {#    let newForm = formsetContainer[0].cloneNode(true),#}
+    {#    formRegex = RegExp(`form-(\\d){1}-`, `g`);#}
+    {#    formsetNum++#}
+    {#    newForm.innerHTML = newForm.innerHTML.replace(formRegex, `form-${formsetNum}-`);#}
+    {##}
+    {#    form.insertBefore(newForm, addFormsetButton);#}
+    {#    totalForms.setAttribute('value', `${formsetNum + 1}`)#}
+    {##}
+    {#    }#}
+    {#    } catch (ex) {#}
+    {#    console.log('outher messag', ex.message)#}
+    {#    }#}
+    {#    </script>#}
+
+{% endblock %}

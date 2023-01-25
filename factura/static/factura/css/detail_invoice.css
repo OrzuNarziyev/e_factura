@@ -1,0 +1,12 @@
+.card-invoice{
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 5px;
+
+}
+
+.wrapper__print button{
+    margin-right: 1.5rem;
+    margin-top: 2em;
+}
+

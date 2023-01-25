@@ -1,0 +1,93 @@
+{% load crispy_forms_tags %}
+<form class="dalolatnoma-form" action="{% url 'factura:formset' 'dalolatnoma' %}" id="form" method="post">
+    <div class="wrapper-dalolatnoma">
+        {% csrf_token %}
+        <div class="form-factura">
+            {% if form %}
+                <div class="input-group col-md-2 mb-3">
+                    <span class="input-group-text" id="basic-addon1">{{ form.no_doc.label }}</span>
+                    {{ form.no_doc }}
+                </div>
+                <div class="input-group col-md-4 mb-3">
+                    <span class="input-group-text" id="basic-addon1">{{ form.date_doc.label }}</span>
+                    {{ form.date_doc }}
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">{{ form.description.label }}</span>
+                    {{ form.description }}
+                    <small>{{ form.description.help_text }}</small>
+                </div>
+            {% endif %}
+        </div>
+        <div class=" file-formset" id="file-formset-factura">
+            {% if file_formset %}
+                <div class="block">
+                    {{ file_formset.non_form_errors }}
+                    {{ file_formset.management_form }}
+                </div>
+                {% for file_form in file_formset %}
+                    <div class="file-formset-container {{ file_formset.prefix }}">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">{{ file_form.file.label }}</label>
+                            {{ file_form.file }}
+                        </div>
+                    </div>
+                {% endfor %}
+
+            {% endif %}
+
+            <button id="add-file-formset" class="btn btn-warning" type="button"><i class="bi bi-plus-circle"></i> Файл
+                кушиш
+            </button>
+
+        </div>
+
+        <div class=" image-formset" id="image-formset-factura">
+            {% if image_formset %}
+
+                <div class="block">
+                    {{ image_formset.non_form_errors }}
+                    {{ image_formset.management_form }}
+                </div>
+                {% for image_form in image_formset %}
+                    <div class="image-formset-container {{ image_formset.prefix }}">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">{{ image_form.image.label }}</label>
+                            {{ image_form.image }}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <button id="add-image-formset" class="btn btn-warning" type="button"><i class="bi bi-plus-circle"></i> Расм
+                Кушиш
+            </button>
+        </div>
+
+        <div class="formset-factura" id="formset-factura">
+            {% if formset %}
+                <div class="block">
+                    {{ formset.non_form_errors }}
+                    {{ formset.management_form }}
+                </div>
+                {% for form in formset %}
+                    <div class="formset-container {{ formset.prefix }}">
+                        <div class="input-group col-md-4 mb-3">
+                            <span class="input-group-text" id="basic-addon1">{{ form.name.label }}</span>
+                            {{ form.name }}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <button id="add-formset" class="btn btn-warning" type="button"><i class="bi bi-plus-circle"></i>имзо
+                чекувчиларни қўшиш
+            </button>
+        </div>
+
+
+
+    </div>
+ <button id="send_btn" type="submit" class="btn btn-primary">хужжатни юбориш</button>
+
+</form>
+
